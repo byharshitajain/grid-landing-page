@@ -1,0 +1,228 @@
+@font-face {
+    font-family: "Inter";
+    src: url("./assets/fonts/inter/inter-variable.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    /* SEMANTIC VARIABLES */
+    --color-background: hsl(228, 100%, 60%);
+    --color-stat-hover: rgba(255, 255, 255, 0.08);
+
+    --color-text-primary: white;
+    --color-text-secondary: #C7D5FF;
+
+    --color-border: rgba(255, 255, 255, 0.14);
+
+    /* TYPOGRAPHY */
+    --font-family: "Inter", arial, sans-serif;
+
+    --font-size-heading: 2.5rem;
+    --font-size-stat: 2rem;
+    --font-size-body: 1.0625rem;
+    --font-size-caption: 0.875rem;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+
+    --size-brand-dot: 0.5rem;
+    --size-menu-icon: 1.5rem;
+    --size-stat-icons: 2rem;
+
+    /* SPACING */
+    --space-stat-gap: 3rem;
+    --space-sm: 0.5rem;
+    --space-md: 1.5rem;
+    --space-lg: 3rem;
+}
+
+body {
+    background-color: var(--color-background);
+    font-family: var(--font-family);
+    color: var(--color-text-primary);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* NAVIGATION */
+
+header nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: var(--space-md);
+
+    border-bottom: 2px solid var(--color-border);
+}
+
+.brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.brand::before {
+    content: "";
+    width: var(--size-brand-dot);
+    height: var(--size-brand-dot);
+    background-color: var(--color-text-primary);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.brand p {
+    font-size: var(--font-size-caption);
+}
+
+.menu-icon {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-icon img {
+    width: var(--size-menu-icon);
+    height: var(--size-menu-icon);
+}
+
+/* HERO */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+
+    padding: var(--space-lg) var(--space-md);
+
+    border-bottom: 2px solid var(--color-border);
+}
+
+.hero h1 {
+    font-size: var(--font-size-heading);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-secondary);
+
+    line-height: 1.7;
+}
+
+/* STATS */
+
+.stats {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-stat-gap);
+    min-height: 15rem;
+
+    padding: var(--space-md);
+    border-bottom: 2px solid var(--color-border);
+}
+
+.stat:hover {
+    cursor: pointer;
+    background-color: var(--color-stat-hover);
+}
+
+.stat-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.stat-head img {
+    width: var(--size-stat-icons);
+}
+
+.stat-head h3 {
+    font-size: var(--font-size-stat);
+    font-weight: var(--font-weight-regular);
+}
+
+.stat-body {
+    line-height: 1.5;
+}
+
+.stat-label {
+    font-size: var(--font-size-body);
+}
+
+.stat-caption {
+    font-size: var(--font-size-caption);
+    color: var(--color-text-secondary);
+}
+
+/* FOOTER */
+
+footer {
+    padding: var(--space-md);
+}
+
+footer p {
+    font-size: var(--font-size-caption);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+@media screen and (min-width: 640px) {
+    :root {
+        --font-size-heading: 3rem;
+        --space-lg: 3.5rem;
+    }
+
+    .hero h1 {
+        max-width: 345px;
+    }
+
+    .hero p {
+        max-width: 445px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat:nth-child(odd) {
+        border-left: 2px solid var(--color-border);
+        border-right: 2px solid var(--color-border);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    :root {
+        --font-size-body: 1rem;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+    }
+
+    .hero {
+        justify-content: center;
+    }
+
+    .hero h1,
+    .hero p {
+        max-width: 320px;
+    }
+}
