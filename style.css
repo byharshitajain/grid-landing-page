@@ -189,6 +189,10 @@ footer p {
         --space-lg: 3.5rem;
     }
 
+    main {
+        height: 80vh;
+    }
+
     .hero h1 {
         max-width: 345px;
     }
@@ -215,6 +219,7 @@ footer p {
     main {
         display: grid;
         grid-template-columns: 1fr 1.3fr;
+        height: none;
     }
 
     .hero {
